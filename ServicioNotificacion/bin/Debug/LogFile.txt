@@ -1,0 +1,219 @@
+02/01/2016 22:29:01:Test Windows Started
+02/01/2016 22:35:29:Test service stoped
+02/01/2016 22:51:08:Test Windows Started
+02/01/2016 22:54:37:Test service stoped
+02/01/2016 22:57:03:Test Windows Started
+02/01/2016 22:58:03:Timer ticked and some job has been done successfully
+02/01/2016 22:59:03:Timer ticked and some job has been done successfully
+02/01/2016 23:01:03:Timer ticked and some job has been done successfully
+02/01/2016 23:02:03:Timer ticked and some job has been done successfully
+02/01/2016 23:02:16:Test service stoped
+02/01/2016 23:09:00:Test Windows Started
+02/01/2016 23:10:00:Timer ticked and some job has been done successfully
+02/01/2016 23:11:00:Timer ticked and some job has been done successfully
+02/01/2016 23:12:00:Timer ticked and some job has been done successfully
+02/01/2016 23:13:00:Timer ticked and some job has been done successfully
+02/01/2016 23:14:00:Timer ticked and some job has been done successfully
+02/01/2016 23:15:00:Send Email
+02/01/2016 23:16:00:Timer ticked and some job has been done successfully
+02/01/2016 23:17:00:Timer ticked and some job has been done successfully
+02/01/2016 23:18:00:Timer ticked and some job has been done successfully
+02/01/2016 23:19:00:Timer ticked and some job has been done successfully
+02/01/2016 23:20:00:Send Email
+02/01/2016 23:21:00:Timer ticked and some job has been done successfully
+02/01/2016 23:22:00:Timer ticked and some job has been done successfully
+02/01/2016 23:23:00:Timer ticked and some job has been done successfully
+02/01/2016 23:24:00:Timer ticked and some job has been done successfully
+02/01/2016 23:24:09:Test service stoped
+02/01/2016 23:39:04:Test Windows Started
+02/01/2016 23:40:04:Send Email
+02/01/2016 23:40:24:Timer ticked and some job has been done successfully
+02/01/2016 23:41:04:Timer ticked and some job has been done successfully
+02/01/2016 23:42:04:Timer ticked and some job has been done successfully
+02/01/2016 23:42:31:Test service stoped
+03/01/2016 13:37:20:Test Windows Started
+03/01/2016 13:38:26:Timer ticked and some job has been done successfully
+03/01/2016 13:39:20:Timer ticked and some job has been done successfully
+03/01/2016 13:40:22:System.Configuration.ConfigurationErrorsException: Error en la inicialización del sistema de configuración ---> System.Configuration.ConfigurationErrorsException: Sólo se permite un elemento <configSections> por archivo de configuración y, si lo hay, debe ser el primer elemento secundario del elemento <configuration> raíz. (C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\bin\Debug\ServicioNotificacion.exe.Config line 11)
+   en System.Configuration.ConfigurationSchemaErrors.ThrowIfErrors(Boolean ignoreLocal)
+   en System.Configuration.BaseConfigurationRecord.ThrowIfParseErrors(ConfigurationSchemaErrors schemaErrors)
+   en System.Configuration.BaseConfigurationRecord.ThrowIfInitErrors()
+   en System.Configuration.ClientConfigurationSystem.EnsureInit(String configKey)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.Configuration.ClientConfigurationSystem.EnsureInit(String configKey)
+   en System.Configuration.ClientConfigurationSystem.PrepareClientConfigSystem(String sectionName)
+   en System.Configuration.ClientConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String sectionName)
+   en System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   en System.Configuration.ConfigurationManager.get_ConnectionStrings()
+   en ServicioNotificacion.Service.TimerTick(Object sender, ElapsedEventArgs e) en c:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\Service.cs:línea 61
+03/01/2016 13:41:20:Timer ticked and some job has been done successfully
+03/01/2016 13:42:20:Timer ticked and some job has been done successfully
+03/01/2016 13:43:20:Timer ticked and some job has been done successfully
+03/01/2016 13:44:20:Timer ticked and some job has been done successfully
+03/01/2016 13:45:20:System.Configuration.ConfigurationErrorsException: Error en la inicialización del sistema de configuración ---> System.Configuration.ConfigurationErrorsException: Sólo se permite un elemento <configSections> por archivo de configuración y, si lo hay, debe ser el primer elemento secundario del elemento <configuration> raíz. (C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\bin\Debug\ServicioNotificacion.exe.Config line 11)
+   en System.Configuration.ConfigurationSchemaErrors.ThrowIfErrors(Boolean ignoreLocal)
+   en System.Configuration.BaseConfigurationRecord.ThrowIfParseErrors(ConfigurationSchemaErrors schemaErrors)
+   en System.Configuration.BaseConfigurationRecord.ThrowIfInitErrors()
+   en System.Configuration.ClientConfigurationSystem.EnsureInit(String configKey)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.Configuration.ConfigurationManager.PrepareConfigSystem()
+   en System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   en System.Configuration.ConfigurationManager.get_ConnectionStrings()
+   en ServicioNotificacion.Service.TimerTick(Object sender, ElapsedEventArgs e) en c:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\Service.cs:línea 61
+03/01/2016 13:46:20:Timer ticked and some job has been done successfully
+03/01/2016 13:47:20:Timer ticked and some job has been done successfully
+03/01/2016 13:48:20:Timer ticked and some job has been done successfully
+03/01/2016 13:49:20:Timer ticked and some job has been done successfully
+03/01/2016 13:49:24:Test service stoped
+03/01/2016 13:54:12:Test Windows Started
+03/01/2016 13:54:58:Test service stoped
+03/01/2016 14:05:33:Test Windows Started
+03/01/2016 14:06:33:Timer ticked and some job has been done successfully
+03/01/2016 14:07:33:Timer ticked and some job has been done successfully
+03/01/2016 14:08:33:Timer ticked and some job has been done successfully
+03/01/2016 14:09:33:Timer ticked and some job has been done successfully
+03/01/2016 14:10:50:False
+03/01/2016 14:10:50:Send Email to User
+03/01/2016 14:10:50:juanman90@gmail.com                                                                                                                                                                                                                                       
+03/01/2016 14:10:50:Timer ticked and some job has been done successfully
+03/01/2016 14:11:33:Timer ticked and some job has been done successfully
+03/01/2016 14:12:33:Timer ticked and some job has been done successfully
+03/01/2016 14:13:33:Timer ticked and some job has been done successfully
+03/01/2016 14:14:33:Timer ticked and some job has been done successfully
+03/01/2016 14:14:34:Test service stoped
+03/01/2016 14:25:56:Test Windows Started
+03/01/2016 14:26:56:Timer ticked and some job has been done successfully
+03/01/2016 14:27:56:Timer ticked and some job has been done successfully
+03/01/2016 14:28:56:Timer ticked and some job has been done successfully
+03/01/2016 14:29:56:Timer ticked and some job has been done successfully
+03/01/2016 14:31:32:True
+03/01/2016 14:31:32:Send Email to User
+03/01/2016 14:31:32:juanman90@gmail.com                                                                                                                                                                                                                                       
+03/01/2016 14:31:32:Timer ticked and some job has been done successfully
+03/01/2016 14:31:56:Timer ticked and some job has been done successfully
+03/01/2016 14:32:56:Timer ticked and some job has been done successfully
+03/01/2016 14:33:56:Timer ticked and some job has been done successfully
+03/01/2016 14:34:56:True
+03/01/2016 14:34:56:Send Email to User
+03/01/2016 14:34:56:juanman90@gmail.com                                                                                                                                                                                                                                       
+03/01/2016 14:34:56:Timer ticked and some job has been done successfully
+03/01/2016 14:35:56:Timer ticked and some job has been done successfully
+03/01/2016 14:36:11:Test service stoped
+03/01/2016 14:52:11:Test Windows Started
+03/01/2016 14:53:11:Timer ticked and some job has been done successfully
+03/01/2016 14:54:11:Timer ticked and some job has been done successfully
+03/01/2016 14:55:16:False
+03/01/2016 14:55:16:Send Email to User
+03/01/2016 14:55:16:juanman90@gmail.com                                                                                                                                                                                                                                       
+03/01/2016 14:55:23:Timer ticked and some job has been done successfully
+03/01/2016 14:56:11:Timer ticked and some job has been done successfully
+03/01/2016 14:57:11:Timer ticked and some job has been done successfully
+03/01/2016 14:58:11:Timer ticked and some job has been done successfully
+03/01/2016 14:59:11:Timer ticked and some job has been done successfully
+03/01/2016 15:00:11:False
+03/01/2016 15:00:11:Send Email to User
+03/01/2016 15:00:11:juanman90@gmail.com                                                                                                                                                                                                                                       
+03/01/2016 15:00:18:Timer ticked and some job has been done successfully
+03/01/2016 15:01:11:Timer ticked and some job has been done successfully
+03/01/2016 15:02:11:Timer ticked and some job has been done successfully
+03/01/2016 15:03:11:Timer ticked and some job has been done successfully
+03/01/2016 15:04:11:Timer ticked and some job has been done successfully
+03/01/2016 15:05:11:Timer ticked and some job has been done successfully
+03/01/2016 15:06:11:Timer ticked and some job has been done successfully
+03/01/2016 15:07:11:Timer ticked and some job has been done successfully
+03/01/2016 15:08:11:Timer ticked and some job has been done successfully
+03/01/2016 15:09:07:Test service stoped
+03/01/2016 16:11:22:Test Windows Started
+03/01/2016 16:12:22:Timer ticked and some job has been done successfully
+03/01/2016 16:13:22:Timer ticked and some job has been done successfully
+03/01/2016 16:14:22:Timer ticked and some job has been done successfully
+03/01/2016 16:15:22:Timer ticked and some job has been done successfully
+03/01/2016 16:16:22:Timer ticked and some job has been done successfully
+03/01/2016 16:17:22:Timer ticked and some job has been done successfully
+03/01/2016 16:18:22:Timer ticked and some job has been done successfully
+03/01/2016 16:19:22:Timer ticked and some job has been done successfully
+03/01/2016 16:20:22:Timer ticked and some job has been done successfully
+03/01/2016 16:21:22:Timer ticked and some job has been done successfully
+03/01/2016 16:22:22:Timer ticked and some job has been done successfully
+03/01/2016 16:23:22:Timer ticked and some job has been done successfully
+03/01/2016 16:24:22:Timer ticked and some job has been done successfully
+03/01/2016 16:25:22:Timer ticked and some job has been done successfully
+03/01/2016 16:26:22:Timer ticked and some job has been done successfully
+03/01/2016 16:27:22:Timer ticked and some job has been done successfully
+03/01/2016 16:28:23:Timer ticked and some job has been done successfully
+03/01/2016 16:29:23:Timer ticked and some job has been done successfully
+03/01/2016 16:30:23:Timer ticked and some job has been done successfully
+03/01/2016 16:31:23:Timer ticked and some job has been done successfully
+03/01/2016 16:32:23:Timer ticked and some job has been done successfully
+03/01/2016 16:33:23:Timer ticked and some job has been done successfully
+03/01/2016 16:34:23:Timer ticked and some job has been done successfully
+03/01/2016 16:35:23:Timer ticked and some job has been done successfully
+03/01/2016 16:36:23:Timer ticked and some job has been done successfully
+03/01/2016 16:37:23:Timer ticked and some job has been done successfully
+03/01/2016 16:38:23:Timer ticked and some job has been done successfully
+03/01/2016 16:39:23:Timer ticked and some job has been done successfully
+03/01/2016 16:40:23:Timer ticked and some job has been done successfully
+03/01/2016 16:41:23:Timer ticked and some job has been done successfully
+03/01/2016 16:42:23:Timer ticked and some job has been done successfully
+03/01/2016 16:43:23:Timer ticked and some job has been done successfully
+03/01/2016 16:44:23:Timer ticked and some job has been done successfully
+03/01/2016 16:45:23:Timer ticked and some job has been done successfully
+03/01/2016 16:46:23:Timer ticked and some job has been done successfully
+03/01/2016 16:47:23:Timer ticked and some job has been done successfully
+03/01/2016 16:48:23:Timer ticked and some job has been done successfully
+03/01/2016 16:49:23:Timer ticked and some job has been done successfully
+03/01/2016 16:50:23:Timer ticked and some job has been done successfully
+03/01/2016 16:51:23:Timer ticked and some job has been done successfully
+03/01/2016 16:52:23:Timer ticked and some job has been done successfully
+03/01/2016 16:53:23:Timer ticked and some job has been done successfully
+03/01/2016 16:54:23:Timer ticked and some job has been done successfully
+03/01/2016 16:55:23:Timer ticked and some job has been done successfully
+03/01/2016 16:56:23:Timer ticked and some job has been done successfully
+03/01/2016 16:57:23:Timer ticked and some job has been done successfully
+03/01/2016 16:58:23:Timer ticked and some job has been done successfully
+03/01/2016 16:59:23:Timer ticked and some job has been done successfully
+03/01/2016 17:00:37:False
+03/01/2016 17:00:37:Send Email to User
+03/01/2016 17:00:38:juanman90@gmail.com                                                                                                                                                                                                                                       
+03/01/2016 17:00:44:Timer ticked and some job has been done successfully
+03/01/2016 17:01:23:Timer ticked and some job has been done successfully
+03/01/2016 17:02:23:Timer ticked and some job has been done successfully
+03/01/2016 17:03:23:Timer ticked and some job has been done successfully
+03/01/2016 17:04:23:Timer ticked and some job has been done successfully
+03/01/2016 17:05:23:Timer ticked and some job has been done successfully
+03/01/2016 17:06:23:Timer ticked and some job has been done successfully
+03/01/2016 17:07:23:Timer ticked and some job has been done successfully
+03/01/2016 17:08:23:Timer ticked and some job has been done successfully
+03/01/2016 17:09:23:Timer ticked and some job has been done successfully
+03/01/2016 17:10:23:Timer ticked and some job has been done successfully
+03/01/2016 17:11:23:Timer ticked and some job has been done successfully
+03/01/2016 17:12:23:Timer ticked and some job has been done successfully
+03/01/2016 17:13:23:Timer ticked and some job has been done successfully
+03/01/2016 17:14:23:Timer ticked and some job has been done successfully
+03/01/2016 17:15:23:Timer ticked and some job has been done successfully
+03/01/2016 17:16:23:Timer ticked and some job has been done successfully
+03/01/2016 17:17:23:Timer ticked and some job has been done successfully
+03/01/2016 17:18:23:Timer ticked and some job has been done successfully
+03/01/2016 17:19:23:Timer ticked and some job has been done successfully
+03/01/2016 17:20:23:Timer ticked and some job has been done successfully
+03/01/2016 17:21:23:Timer ticked and some job has been done successfully
+03/01/2016 17:22:23:Timer ticked and some job has been done successfully
+03/01/2016 17:23:23:Timer ticked and some job has been done successfully
+03/01/2016 17:24:23:Timer ticked and some job has been done successfully
+03/01/2016 17:25:23:Timer ticked and some job has been done successfully
+03/01/2016 17:26:23:Timer ticked and some job has been done successfully
+03/01/2016 17:27:23:Timer ticked and some job has been done successfully
+03/01/2016 17:28:23:Timer ticked and some job has been done successfully
+03/01/2016 17:29:23:Timer ticked and some job has been done successfully
+03/01/2016 17:30:30:False
+03/01/2016 17:30:30:Send Email to User
+03/01/2016 17:30:30:juanman90@gmail.com                                                                                                                                                                                                                                       
+03/01/2016 17:30:37:Timer ticked and some job has been done successfully
+03/01/2016 17:31:23:Timer ticked and some job has been done successfully
+03/01/2016 17:32:23:Timer ticked and some job has been done successfully
+03/01/2016 17:33:23:Timer ticked and some job has been done successfully
+03/01/2016 17:34:23:Timer ticked and some job has been done successfully
+03/01/2016 17:35:23:Timer ticked and some job has been done successfully
+03/01/2016 17:36:23:Timer ticked and some job has been done successfully
+03/01/2016 17:37:23:Timer ticked and some job has been done successfully
+03/01/2016 17:37:45:Test service stoped

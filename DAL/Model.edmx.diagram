@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="69b66219c3dd4706b59ab461da03908c" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_AcmeModel.TB_Auditoria" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_AcmeModel.TB_Categoria" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_AcmeModel.TB_Ciudad" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_AcmeModel.TB_Cliente" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_AcmeModel.TB_DetallePedido" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_AcmeModel.TB_Documento" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_AcmeModel.TB_LoginAuditoria" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_AcmeModel.TB_Pedido" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_AcmeModel.TB_Producto" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_AcmeModel.TB_Promocion" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_AcmeModel.TB_Vendedor" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="DB_AcmeModel.FK_TB_Producto_TB_Categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_AcmeModel.FK_TB_Cliente_TB_Ciudad" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_AcmeModel.FK_TB_Cliente_TB_Documento" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_AcmeModel.FK_TB_Cliente_TB_Vendedor" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_AcmeModel.FK_TB_Pedido_TB_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_AcmeModel.FK_TB_DetallePedido_TB_Pedido" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_AcmeModel.FK_TB_DetallePedido_TB_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_AcmeModel.FK_TB_Producto_TB_Promocion" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

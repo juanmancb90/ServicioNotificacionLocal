@@ -1,0 +1,16 @@
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\bin\Debug\ServicioNotificacion.exe.config
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\bin\Debug\ServicioNotificacion.exe
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\bin\Debug\ServicioNotificacion.pdb
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\bin\Debug\BL.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\bin\Debug\Entidades.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\bin\Debug\DAL.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\bin\Debug\EntityFramework.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\bin\Debug\BL.pdb
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\bin\Debug\Entidades.pdb
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\bin\Debug\DAL.pdb
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\bin\Debug\EntityFramework.xml
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\obj\Debug\ServicioNotificacion.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\obj\Debug\ServicioNotificacion.ProjectInstaller.resources
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\obj\Debug\ServicioNotificacion.csproj.GenerateResource.Cache
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\obj\Debug\ServicioNotificacion.exe
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\ServicioNotificacion\obj\Debug\ServicioNotificacion.pdb

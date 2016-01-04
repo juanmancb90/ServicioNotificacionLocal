@@ -1,0 +1,948 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_AcmeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TB_Auditoria">
+          <Key>
+            <PropertyRef Name="ID_Auditoria" />
+          </Key>
+          <Property Name="ID_Auditoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TiempoEvento" Type="datetime" Nullable="false" />
+          <Property Name="NombreUsuario" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="NombreBaseDatos" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="NombreObjeto" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="TipoObjeto" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ComandoDML" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Categoria">
+          <Key>
+            <PropertyRef Name="ID_Categoria" />
+          </Key>
+          <Property Name="ID_Categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoCategoria" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="140" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Ciudad">
+          <Key>
+            <PropertyRef Name="ID_Ciudad" />
+          </Key>
+          <Property Name="ID_Ciudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCiudad" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="NombreRegion" Type="nvarchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Cliente">
+          <Key>
+            <PropertyRef Name="ID_Cliente" />
+          </Key>
+          <Property Name="ID_Cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Vendedor" Type="int" Nullable="false" />
+          <Property Name="ID_Ciudad" Type="int" Nullable="false" />
+          <Property Name="ID_Documento" Type="int" Nullable="false" />
+          <Property Name="NombreCompleto" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="NumeroDocumento" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Celular" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="80" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_DetallePedido">
+          <Key>
+            <PropertyRef Name="ID_DetallePedido" />
+          </Key>
+          <Property Name="ID_DetallePedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Pedido" Type="int" Nullable="false" />
+          <Property Name="ID_Producto" Type="int" Nullable="false" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="NombreProducto" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="ValorUnitario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Impuesto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="SubTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Documento">
+          <Key>
+            <PropertyRef Name="ID_Documento" />
+          </Key>
+          <Property Name="ID_Documento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoDocumento" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_LoginAuditoria">
+          <Key>
+            <PropertyRef Name="ID_Login" />
+          </Key>
+          <Property Name="ID_Login" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreUsuario" Type="nchar" MaxLength="250" Nullable="false" />
+          <Property Name="FechaIngreso" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Pedido">
+          <Key>
+            <PropertyRef Name="ID_Pedido" />
+          </Key>
+          <Property Name="ID_Pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Cliente" Type="int" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="TotalBruto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Impuesto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ValorNeto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Producto">
+          <Key>
+            <PropertyRef Name="ID_Producto" />
+          </Key>
+          <Property Name="ID_Producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Categoria" Type="int" Nullable="false" />
+          <Property Name="ID_Promocion" Type="int" Nullable="false" />
+          <Property Name="NombreProducto" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Fabricante" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Stock" Type="int" Nullable="false" />
+          <Property Name="Impuesto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ValorUnitario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Promocion">
+          <Key>
+            <PropertyRef Name="ID_Promocion" />
+          </Key>
+          <Property Name="ID_Promocion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoPromocion" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="140" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Vendedor">
+          <Key>
+            <PropertyRef Name="ID_Vendedor" />
+          </Key>
+          <Property Name="ID_Vendedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCompleto" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="NumeroDocumento" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="NombreUsuario" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Contrasenia" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Email" Type="nchar" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_TB_Cliente_TB_Ciudad">
+          <End Role="TB_Ciudad" Type="Self.TB_Ciudad" Multiplicity="1" />
+          <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Ciudad">
+              <PropertyRef Name="ID_Ciudad" />
+            </Principal>
+            <Dependent Role="TB_Cliente">
+              <PropertyRef Name="ID_Ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Cliente_TB_Documento">
+          <End Role="TB_Documento" Type="Self.TB_Documento" Multiplicity="1" />
+          <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Documento">
+              <PropertyRef Name="ID_Documento" />
+            </Principal>
+            <Dependent Role="TB_Cliente">
+              <PropertyRef Name="ID_Documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Cliente_TB_Vendedor">
+          <End Role="TB_Vendedor" Type="Self.TB_Vendedor" Multiplicity="1" />
+          <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Vendedor">
+              <PropertyRef Name="ID_Vendedor" />
+            </Principal>
+            <Dependent Role="TB_Cliente">
+              <PropertyRef Name="ID_Vendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_DetallePedido_TB_Pedido">
+          <End Role="TB_Pedido" Type="Self.TB_Pedido" Multiplicity="1" />
+          <End Role="TB_DetallePedido" Type="Self.TB_DetallePedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Pedido">
+              <PropertyRef Name="ID_Pedido" />
+            </Principal>
+            <Dependent Role="TB_DetallePedido">
+              <PropertyRef Name="ID_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_DetallePedido_TB_Producto">
+          <End Role="TB_Producto" Type="Self.TB_Producto" Multiplicity="1" />
+          <End Role="TB_DetallePedido" Type="Self.TB_DetallePedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Producto">
+              <PropertyRef Name="ID_Producto" />
+            </Principal>
+            <Dependent Role="TB_DetallePedido">
+              <PropertyRef Name="ID_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Pedido_TB_Cliente">
+          <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="1" />
+          <End Role="TB_Pedido" Type="Self.TB_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Cliente">
+              <PropertyRef Name="ID_Cliente" />
+            </Principal>
+            <Dependent Role="TB_Pedido">
+              <PropertyRef Name="ID_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Producto_TB_Categoria">
+          <End Role="TB_Categoria" Type="Self.TB_Categoria" Multiplicity="1" />
+          <End Role="TB_Producto" Type="Self.TB_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Categoria">
+              <PropertyRef Name="ID_Categoria" />
+            </Principal>
+            <Dependent Role="TB_Producto">
+              <PropertyRef Name="ID_Categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Producto_TB_Promocion">
+          <End Role="TB_Promocion" Type="Self.TB_Promocion" Multiplicity="1" />
+          <End Role="TB_Producto" Type="Self.TB_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Promocion">
+              <PropertyRef Name="ID_Promocion" />
+            </Principal>
+            <Dependent Role="TB_Producto">
+              <PropertyRef Name="ID_Promocion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ActualizarPedidoSincronizado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_Pedido" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ActualizarProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_Producto" Type="int" Mode="In" />
+          <Parameter Name="ID_Categoria" Type="int" Mode="In" />
+          <Parameter Name="ID_Promocion" Type="int" Mode="In" />
+          <Parameter Name="NombreProducto" Type="nvarchar" Mode="In" />
+          <Parameter Name="Codigo" Type="nvarchar" Mode="In" />
+          <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="Fabricante" Type="nvarchar" Mode="In" />
+          <Parameter Name="Stock" Type="int" Mode="In" />
+          <Parameter Name="Impuesto" Type="decimal" Mode="In" />
+          <Parameter Name="ValorUnitario" Type="decimal" Mode="In" />
+          <Parameter Name="Estado" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="ActualizarStockProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_Producto" Type="int" Mode="In" />
+          <Parameter Name="Cantidad" Type="int" Mode="In" />
+        </Function>
+        <Function Name="AutenticarVendedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NombreUsuario" Type="nvarchar" Mode="In" />
+          <Parameter Name="Contrasenia" Type="nvarchar" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="ConsultarDetallePedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_Pedido" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ConsultarIdentificadorPedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_Pedido" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="ConsultarPedidoFecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Fecha" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="ConsultarUsuarioLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FechaActual" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="ConsultarVendedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NombreUsuario" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="InsertarDetallePedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_Pedido" Type="int" Mode="In" />
+          <Parameter Name="ID_Producto" Type="int" Mode="In" />
+          <Parameter Name="Cantidad" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertarPedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_Cliente" Type="int" Mode="In" />
+          <Parameter Name="TotalBruto" Type="decimal" Mode="In" />
+          <Parameter Name="Impuesto" Type="decimal" Mode="In" />
+          <Parameter Name="ValorNeto" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="InsertarProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_Categoria" Type="int" Mode="In" />
+          <Parameter Name="ID_Promocion" Type="int" Mode="In" />
+          <Parameter Name="NombreProducto" Type="nvarchar" Mode="In" />
+          <Parameter Name="Codigo" Type="nvarchar" Mode="In" />
+          <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="Fabricante" Type="nvarchar" Mode="In" />
+          <Parameter Name="Stock" Type="int" Mode="In" />
+          <Parameter Name="Impuesto" Type="decimal" Mode="In" />
+          <Parameter Name="ValorUnitario" Type="decimal" Mode="In" />
+          <Parameter Name="Estado" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="InsertarUsuarioLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NombreUsuario" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="InsertarVendedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NombreCompleto" Type="nvarchar" Mode="In" />
+          <Parameter Name="NumeroDocumento" Type="nvarchar" Mode="In" />
+          <Parameter Name="NombreUsuario" Type="nvarchar" Mode="In" />
+          <Parameter Name="Contrasenia" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="DB_AcmeModelStoreContainer">
+          <EntitySet Name="TB_Auditoria" EntityType="Self.TB_Auditoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Categoria" EntityType="Self.TB_Categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Ciudad" EntityType="Self.TB_Ciudad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Cliente" EntityType="Self.TB_Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_DetallePedido" EntityType="Self.TB_DetallePedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Documento" EntityType="Self.TB_Documento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_LoginAuditoria" EntityType="Self.TB_LoginAuditoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Pedido" EntityType="Self.TB_Pedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Producto" EntityType="Self.TB_Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Promocion" EntityType="Self.TB_Promocion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Vendedor" EntityType="Self.TB_Vendedor" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TB_Cliente_TB_Ciudad" Association="Self.FK_TB_Cliente_TB_Ciudad">
+            <End Role="TB_Ciudad" EntitySet="TB_Ciudad" />
+            <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Cliente_TB_Documento" Association="Self.FK_TB_Cliente_TB_Documento">
+            <End Role="TB_Documento" EntitySet="TB_Documento" />
+            <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Cliente_TB_Vendedor" Association="Self.FK_TB_Cliente_TB_Vendedor">
+            <End Role="TB_Vendedor" EntitySet="TB_Vendedor" />
+            <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_DetallePedido_TB_Pedido" Association="Self.FK_TB_DetallePedido_TB_Pedido">
+            <End Role="TB_Pedido" EntitySet="TB_Pedido" />
+            <End Role="TB_DetallePedido" EntitySet="TB_DetallePedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_DetallePedido_TB_Producto" Association="Self.FK_TB_DetallePedido_TB_Producto">
+            <End Role="TB_Producto" EntitySet="TB_Producto" />
+            <End Role="TB_DetallePedido" EntitySet="TB_DetallePedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Pedido_TB_Cliente" Association="Self.FK_TB_Pedido_TB_Cliente">
+            <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+            <End Role="TB_Pedido" EntitySet="TB_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Producto_TB_Categoria" Association="Self.FK_TB_Producto_TB_Categoria">
+            <End Role="TB_Categoria" EntitySet="TB_Categoria" />
+            <End Role="TB_Producto" EntitySet="TB_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Producto_TB_Promocion" Association="Self.FK_TB_Producto_TB_Promocion">
+            <End Role="TB_Promocion" EntitySet="TB_Promocion" />
+            <End Role="TB_Producto" EntitySet="TB_Producto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_AcmeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TB_Auditoria">
+          <Key>
+            <PropertyRef Name="ID_Auditoria" />
+          </Key>
+          <Property Name="ID_Auditoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TiempoEvento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NombreBaseDatos" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NombreObjeto" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TipoObjeto" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ComandoDML" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Categoria">
+          <Key>
+            <PropertyRef Name="ID_Categoria" />
+          </Key>
+          <Property Name="ID_Categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoCategoria" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="140" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TB_Producto" Relationship="Self.FK_TB_Producto_TB_Categoria" FromRole="TB_Categoria" ToRole="TB_Producto" />
+        </EntityType>
+        <EntityType Name="TB_Ciudad">
+          <Key>
+            <PropertyRef Name="ID_Ciudad" />
+          </Key>
+          <Property Name="ID_Ciudad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCiudad" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NombreRegion" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Cliente_TB_Ciudad" FromRole="TB_Ciudad" ToRole="TB_Cliente" />
+        </EntityType>
+        <EntityType Name="TB_Cliente">
+          <Key>
+            <PropertyRef Name="ID_Cliente" />
+          </Key>
+          <Property Name="ID_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Vendedor" Type="Int32" Nullable="false" />
+          <Property Name="ID_Ciudad" Type="Int32" Nullable="false" />
+          <Property Name="ID_Documento" Type="Int32" Nullable="false" />
+          <Property Name="NombreCompleto" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumeroDocumento" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Celular" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TB_Ciudad" Relationship="Self.FK_TB_Cliente_TB_Ciudad" FromRole="TB_Cliente" ToRole="TB_Ciudad" />
+          <NavigationProperty Name="TB_Documento" Relationship="Self.FK_TB_Cliente_TB_Documento" FromRole="TB_Cliente" ToRole="TB_Documento" />
+          <NavigationProperty Name="TB_Vendedor" Relationship="Self.FK_TB_Cliente_TB_Vendedor" FromRole="TB_Cliente" ToRole="TB_Vendedor" />
+          <NavigationProperty Name="TB_Pedido" Relationship="Self.FK_TB_Pedido_TB_Cliente" FromRole="TB_Cliente" ToRole="TB_Pedido" />
+        </EntityType>
+        <EntityType Name="TB_DetallePedido">
+          <Key>
+            <PropertyRef Name="ID_DetallePedido" />
+          </Key>
+          <Property Name="ID_DetallePedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Pedido" Type="Int32" Nullable="false" />
+          <Property Name="ID_Producto" Type="Int32" Nullable="false" />
+          <Property Name="Codigo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NombreProducto" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="ValorUnitario" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Impuesto" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="SubTotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="TB_Pedido" Relationship="Self.FK_TB_DetallePedido_TB_Pedido" FromRole="TB_DetallePedido" ToRole="TB_Pedido" />
+          <NavigationProperty Name="TB_Producto" Relationship="Self.FK_TB_DetallePedido_TB_Producto" FromRole="TB_DetallePedido" ToRole="TB_Producto" />
+        </EntityType>
+        <EntityType Name="TB_Documento">
+          <Key>
+            <PropertyRef Name="ID_Documento" />
+          </Key>
+          <Property Name="ID_Documento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoDocumento" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Cliente_TB_Documento" FromRole="TB_Documento" ToRole="TB_Cliente" />
+        </EntityType>
+        <EntityType Name="TB_LoginAuditoria">
+          <Key>
+            <PropertyRef Name="ID_Login" />
+          </Key>
+          <Property Name="ID_Login" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="250" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TB_Pedido">
+          <Key>
+            <PropertyRef Name="ID_Pedido" />
+          </Key>
+          <Property Name="ID_Pedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Cliente" Type="Int32" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TotalBruto" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Impuesto" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ValorNeto" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Pedido_TB_Cliente" FromRole="TB_Pedido" ToRole="TB_Cliente" />
+          <NavigationProperty Name="TB_DetallePedido" Relationship="Self.FK_TB_DetallePedido_TB_Pedido" FromRole="TB_Pedido" ToRole="TB_DetallePedido" />
+        </EntityType>
+        <EntityType Name="TB_Producto">
+          <Key>
+            <PropertyRef Name="ID_Producto" />
+          </Key>
+          <Property Name="ID_Producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Categoria" Type="Int32" Nullable="false" />
+          <Property Name="ID_Promocion" Type="Int32" Nullable="false" />
+          <Property Name="NombreProducto" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Codigo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fabricante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Stock" Type="Int32" Nullable="false" />
+          <Property Name="Impuesto" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ValorUnitario" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TB_Categoria" Relationship="Self.FK_TB_Producto_TB_Categoria" FromRole="TB_Producto" ToRole="TB_Categoria" />
+          <NavigationProperty Name="TB_DetallePedido" Relationship="Self.FK_TB_DetallePedido_TB_Producto" FromRole="TB_Producto" ToRole="TB_DetallePedido" />
+          <NavigationProperty Name="TB_Promocion" Relationship="Self.FK_TB_Producto_TB_Promocion" FromRole="TB_Producto" ToRole="TB_Promocion" />
+        </EntityType>
+        <EntityType Name="TB_Promocion">
+          <Key>
+            <PropertyRef Name="ID_Promocion" />
+          </Key>
+          <Property Name="ID_Promocion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoPromocion" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="140" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TB_Producto" Relationship="Self.FK_TB_Producto_TB_Promocion" FromRole="TB_Promocion" ToRole="TB_Producto" />
+        </EntityType>
+        <EntityType Name="TB_Vendedor">
+          <Key>
+            <PropertyRef Name="ID_Vendedor" />
+          </Key>
+          <Property Name="ID_Vendedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCompleto" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumeroDocumento" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contrasenia" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Cliente_TB_Vendedor" FromRole="TB_Vendedor" ToRole="TB_Cliente" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_TB_Producto_TB_Categoria">
+          <End Role="TB_Categoria" Type="Self.TB_Categoria" Multiplicity="1" />
+          <End Role="TB_Producto" Type="Self.TB_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Categoria">
+              <PropertyRef Name="ID_Categoria" />
+            </Principal>
+            <Dependent Role="TB_Producto">
+              <PropertyRef Name="ID_Categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Cliente_TB_Ciudad">
+          <End Role="TB_Ciudad" Type="Self.TB_Ciudad" Multiplicity="1" />
+          <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Ciudad">
+              <PropertyRef Name="ID_Ciudad" />
+            </Principal>
+            <Dependent Role="TB_Cliente">
+              <PropertyRef Name="ID_Ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Cliente_TB_Documento">
+          <End Role="TB_Documento" Type="Self.TB_Documento" Multiplicity="1" />
+          <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Documento">
+              <PropertyRef Name="ID_Documento" />
+            </Principal>
+            <Dependent Role="TB_Cliente">
+              <PropertyRef Name="ID_Documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Cliente_TB_Vendedor">
+          <End Role="TB_Vendedor" Type="Self.TB_Vendedor" Multiplicity="1" />
+          <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Vendedor">
+              <PropertyRef Name="ID_Vendedor" />
+            </Principal>
+            <Dependent Role="TB_Cliente">
+              <PropertyRef Name="ID_Vendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Pedido_TB_Cliente">
+          <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="1" />
+          <End Role="TB_Pedido" Type="Self.TB_Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Cliente">
+              <PropertyRef Name="ID_Cliente" />
+            </Principal>
+            <Dependent Role="TB_Pedido">
+              <PropertyRef Name="ID_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_DetallePedido_TB_Pedido">
+          <End Role="TB_Pedido" Type="Self.TB_Pedido" Multiplicity="1" />
+          <End Role="TB_DetallePedido" Type="Self.TB_DetallePedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Pedido">
+              <PropertyRef Name="ID_Pedido" />
+            </Principal>
+            <Dependent Role="TB_DetallePedido">
+              <PropertyRef Name="ID_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_DetallePedido_TB_Producto">
+          <End Role="TB_Producto" Type="Self.TB_Producto" Multiplicity="1" />
+          <End Role="TB_DetallePedido" Type="Self.TB_DetallePedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Producto">
+              <PropertyRef Name="ID_Producto" />
+            </Principal>
+            <Dependent Role="TB_DetallePedido">
+              <PropertyRef Name="ID_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Producto_TB_Promocion">
+          <End Role="TB_Promocion" Type="Self.TB_Promocion" Multiplicity="1" />
+          <End Role="TB_Producto" Type="Self.TB_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Promocion">
+              <PropertyRef Name="ID_Promocion" />
+            </Principal>
+            <Dependent Role="TB_Producto">
+              <PropertyRef Name="ID_Promocion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_AcmeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TB_Auditoria" EntityType="Self.TB_Auditoria" />
+          <EntitySet Name="TB_Categoria" EntityType="Self.TB_Categoria" />
+          <EntitySet Name="TB_Ciudad" EntityType="Self.TB_Ciudad" />
+          <EntitySet Name="TB_Cliente" EntityType="Self.TB_Cliente" />
+          <EntitySet Name="TB_DetallePedido" EntityType="Self.TB_DetallePedido" />
+          <EntitySet Name="TB_Documento" EntityType="Self.TB_Documento" />
+          <EntitySet Name="TB_LoginAuditoria" EntityType="Self.TB_LoginAuditoria" />
+          <EntitySet Name="TB_Pedido" EntityType="Self.TB_Pedido" />
+          <EntitySet Name="TB_Producto" EntityType="Self.TB_Producto" />
+          <EntitySet Name="TB_Promocion" EntityType="Self.TB_Promocion" />
+          <EntitySet Name="TB_Vendedor" EntityType="Self.TB_Vendedor" />
+          <AssociationSet Name="FK_TB_Producto_TB_Categoria" Association="Self.FK_TB_Producto_TB_Categoria">
+            <End Role="TB_Categoria" EntitySet="TB_Categoria" />
+            <End Role="TB_Producto" EntitySet="TB_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Cliente_TB_Ciudad" Association="Self.FK_TB_Cliente_TB_Ciudad">
+            <End Role="TB_Ciudad" EntitySet="TB_Ciudad" />
+            <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Cliente_TB_Documento" Association="Self.FK_TB_Cliente_TB_Documento">
+            <End Role="TB_Documento" EntitySet="TB_Documento" />
+            <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Cliente_TB_Vendedor" Association="Self.FK_TB_Cliente_TB_Vendedor">
+            <End Role="TB_Vendedor" EntitySet="TB_Vendedor" />
+            <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Pedido_TB_Cliente" Association="Self.FK_TB_Pedido_TB_Cliente">
+            <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+            <End Role="TB_Pedido" EntitySet="TB_Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_DetallePedido_TB_Pedido" Association="Self.FK_TB_DetallePedido_TB_Pedido">
+            <End Role="TB_Pedido" EntitySet="TB_Pedido" />
+            <End Role="TB_DetallePedido" EntitySet="TB_DetallePedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_DetallePedido_TB_Producto" Association="Self.FK_TB_DetallePedido_TB_Producto">
+            <End Role="TB_Producto" EntitySet="TB_Producto" />
+            <End Role="TB_DetallePedido" EntitySet="TB_DetallePedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Producto_TB_Promocion" Association="Self.FK_TB_Producto_TB_Promocion">
+            <End Role="TB_Promocion" EntitySet="TB_Promocion" />
+            <End Role="TB_Producto" EntitySet="TB_Producto" />
+          </AssociationSet>
+          <FunctionImport Name="ActualizarPedidoSincronizado">
+          <Parameter Name="ID_Pedido" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ActualizarProducto">
+            <Parameter Name="ID_Producto" Mode="In" Type="Int32" />
+            <Parameter Name="ID_Categoria" Mode="In" Type="Int32" />
+            <Parameter Name="ID_Promocion" Mode="In" Type="Int32" />
+            <Parameter Name="NombreProducto" Mode="In" Type="String" />
+            <Parameter Name="Codigo" Mode="In" Type="String" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="Fabricante" Mode="In" Type="String" />
+            <Parameter Name="Stock" Mode="In" Type="Int32" />
+            <Parameter Name="Impuesto" Mode="In" Type="Decimal" />
+            <Parameter Name="ValorUnitario" Mode="In" Type="Decimal" />
+            <Parameter Name="Estado" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="ActualizarStockProducto">
+            <Parameter Name="ID_Producto" Mode="In" Type="Int32" />
+            <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="AutenticarVendedor">
+            <Parameter Name="NombreUsuario" Mode="In" Type="String" />
+            <Parameter Name="Contrasenia" Mode="In" Type="String" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="ConsultarDetallePedido" ReturnType="Collection(DB_AcmeModel.ConsultarDetallePedido_Result)">
+          <Parameter Name="ID_Pedido" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ConsultarIdentificadorPedido">
+          <Parameter Name="ID_Pedido" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ConsultarPedidoFecha" ReturnType="Collection(DB_AcmeModel.ConsultarPedidoFecha_Result)">
+          <Parameter Name="Fecha" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertarDetallePedido">
+            <Parameter Name="ID_Pedido" Mode="In" Type="Int32" />
+            <Parameter Name="ID_Producto" Mode="In" Type="Int32" />
+            <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertarPedido">
+            <Parameter Name="ID_Cliente" Mode="In" Type="Int32" />
+            <Parameter Name="TotalBruto" Mode="In" Type="Decimal" />
+            <Parameter Name="Impuesto" Mode="In" Type="Decimal" />
+            <Parameter Name="ValorNeto" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="InsertarProducto">
+            <Parameter Name="ID_Categoria" Mode="In" Type="Int32" />
+            <Parameter Name="ID_Promocion" Mode="In" Type="Int32" />
+            <Parameter Name="NombreProducto" Mode="In" Type="String" />
+            <Parameter Name="Codigo" Mode="In" Type="String" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="Fabricante" Mode="In" Type="String" />
+            <Parameter Name="Stock" Mode="In" Type="Int32" />
+            <Parameter Name="Impuesto" Mode="In" Type="Decimal" />
+            <Parameter Name="ValorUnitario" Mode="In" Type="Decimal" />
+            <Parameter Name="Estado" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="InsertarUsuarioLogin">
+          <Parameter Name="NombreUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertarVendedor">
+            <Parameter Name="NombreCompleto" Mode="In" Type="String" />
+            <Parameter Name="NumeroDocumento" Mode="In" Type="String" />
+            <Parameter Name="NombreUsuario" Mode="In" Type="String" />
+            <Parameter Name="Contrasenia" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ConsultarUsuarioLogin" ReturnType="Collection(DB_AcmeModel.ConsultarUsuarioLogin_Result)">
+          <Parameter Name="FechaActual" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ConsultarVendedor" ReturnType="Collection(DB_AcmeModel.ConsultarVendedor_Result)">
+            <Parameter Name="NombreUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="ConsultarDetallePedido_Result">
+          <Property Type="Int32" Name="ID_DetallePedido" Nullable="false" />
+          <Property Type="Int32" Name="ID_Pedido" Nullable="false" />
+          <Property Type="Int32" Name="ID_Producto" Nullable="false" />
+          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="NombreProducto" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="250" />
+          <Property Type="Int32" Name="Cantidad" Nullable="false" />
+          <Property Type="Decimal" Name="ValorUnitario" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Impuesto" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="SubTotal" Nullable="false" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="ConsultarPedidoFecha_Result">
+          <Property Type="Int32" Name="ID_Pedido" Nullable="false" />
+          <Property Type="Int32" Name="ID_Cliente" Nullable="false" />
+          <Property Type="DateTime" Name="FechaRegistro" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="TotalBruto" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Impuesto" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="ValorNeto" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Boolean" Name="Estado" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ConsultarUsuarioLogin_Result">
+          <Property Type="Int32" Name="ID_Login" Nullable="false" />
+          <Property Type="String" Name="NombreUsuario" Nullable="false" MaxLength="250" />
+          <Property Type="DateTime" Name="FechaIngreso" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="ConsultarVendedor_Result">
+          <Property Type="Int32" Name="ID_Vendedor" Nullable="false" />
+          <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="NumeroDocumento" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="NombreUsuario" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="Contrasenia" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_AcmeModelStoreContainer" CdmEntityContainer="DB_AcmeEntities">
+          <EntitySetMapping Name="TB_Auditoria">
+            <EntityTypeMapping TypeName="DB_AcmeModel.TB_Auditoria">
+              <MappingFragment StoreEntitySet="TB_Auditoria">
+                <ScalarProperty Name="ID_Auditoria" ColumnName="ID_Auditoria" />
+                <ScalarProperty Name="TiempoEvento" ColumnName="TiempoEvento" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="NombreBaseDatos" ColumnName="NombreBaseDatos" />
+                <ScalarProperty Name="NombreObjeto" ColumnName="NombreObjeto" />
+                <ScalarProperty Name="TipoObjeto" ColumnName="TipoObjeto" />
+                <ScalarProperty Name="ComandoDML" ColumnName="ComandoDML" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Categoria">
+            <EntityTypeMapping TypeName="DB_AcmeModel.TB_Categoria">
+              <MappingFragment StoreEntitySet="TB_Categoria">
+                <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
+                <ScalarProperty Name="TipoCategoria" ColumnName="TipoCategoria" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Ciudad">
+            <EntityTypeMapping TypeName="DB_AcmeModel.TB_Ciudad">
+              <MappingFragment StoreEntitySet="TB_Ciudad">
+                <ScalarProperty Name="ID_Ciudad" ColumnName="ID_Ciudad" />
+                <ScalarProperty Name="NombreCiudad" ColumnName="NombreCiudad" />
+                <ScalarProperty Name="NombreRegion" ColumnName="NombreRegion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Cliente">
+            <EntityTypeMapping TypeName="DB_AcmeModel.TB_Cliente">
+              <MappingFragment StoreEntitySet="TB_Cliente">
+                <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+                <ScalarProperty Name="ID_Vendedor" ColumnName="ID_Vendedor" />
+                <ScalarProperty Name="ID_Ciudad" ColumnName="ID_Ciudad" />
+                <ScalarProperty Name="ID_Documento" ColumnName="ID_Documento" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_DetallePedido">
+            <EntityTypeMapping TypeName="DB_AcmeModel.TB_DetallePedido">
+              <MappingFragment StoreEntitySet="TB_DetallePedido">
+                <ScalarProperty Name="ID_DetallePedido" ColumnName="ID_DetallePedido" />
+                <ScalarProperty Name="ID_Pedido" ColumnName="ID_Pedido" />
+                <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="ValorUnitario" ColumnName="ValorUnitario" />
+                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Documento">
+            <EntityTypeMapping TypeName="DB_AcmeModel.TB_Documento">
+              <MappingFragment StoreEntitySet="TB_Documento">
+                <ScalarProperty Name="ID_Documento" ColumnName="ID_Documento" />
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_LoginAuditoria">
+            <EntityTypeMapping TypeName="DB_AcmeModel.TB_LoginAuditoria">
+              <MappingFragment StoreEntitySet="TB_LoginAuditoria">
+                <ScalarProperty Name="ID_Login" ColumnName="ID_Login" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Pedido">
+            <EntityTypeMapping TypeName="DB_AcmeModel.TB_Pedido">
+              <MappingFragment StoreEntitySet="TB_Pedido">
+                <ScalarProperty Name="ID_Pedido" ColumnName="ID_Pedido" />
+                <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="TotalBruto" ColumnName="TotalBruto" />
+                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+                <ScalarProperty Name="ValorNeto" ColumnName="ValorNeto" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Producto">
+            <EntityTypeMapping TypeName="DB_AcmeModel.TB_Producto">
+              <MappingFragment StoreEntitySet="TB_Producto">
+                <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+                <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
+                <ScalarProperty Name="ID_Promocion" ColumnName="ID_Promocion" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Fabricante" ColumnName="Fabricante" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+                <ScalarProperty Name="ValorUnitario" ColumnName="ValorUnitario" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Promocion">
+            <EntityTypeMapping TypeName="DB_AcmeModel.TB_Promocion">
+              <MappingFragment StoreEntitySet="TB_Promocion">
+                <ScalarProperty Name="ID_Promocion" ColumnName="ID_Promocion" />
+                <ScalarProperty Name="TipoPromocion" ColumnName="TipoPromocion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Vendedor">
+            <EntityTypeMapping TypeName="DB_AcmeModel.TB_Vendedor">
+              <MappingFragment StoreEntitySet="TB_Vendedor">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ID_Vendedor" ColumnName="ID_Vendedor" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ActualizarPedidoSincronizado" FunctionName="DB_AcmeModel.Store.ActualizarPedidoSincronizado" />
+          <FunctionImportMapping FunctionImportName="ActualizarProducto" FunctionName="DB_AcmeModel.Store.ActualizarProducto" />
+          <FunctionImportMapping FunctionImportName="ActualizarStockProducto" FunctionName="DB_AcmeModel.Store.ActualizarStockProducto" />
+          <FunctionImportMapping FunctionImportName="AutenticarVendedor" FunctionName="DB_AcmeModel.Store.AutenticarVendedor" />
+          <FunctionImportMapping FunctionImportName="ConsultarDetallePedido" FunctionName="DB_AcmeModel.Store.ConsultarDetallePedido">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_AcmeModel.ConsultarDetallePedido_Result">
+                <ScalarProperty Name="ID_DetallePedido" ColumnName="ID_DetallePedido" />
+                <ScalarProperty Name="ID_Pedido" ColumnName="ID_Pedido" />
+                <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="ValorUnitario" ColumnName="ValorUnitario" />
+                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ConsultarIdentificadorPedido" FunctionName="DB_AcmeModel.Store.ConsultarIdentificadorPedido" />
+          <FunctionImportMapping FunctionImportName="ConsultarPedidoFecha" FunctionName="DB_AcmeModel.Store.ConsultarPedidoFecha">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_AcmeModel.ConsultarPedidoFecha_Result">
+                <ScalarProperty Name="ID_Pedido" ColumnName="ID_Pedido" />
+                <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="TotalBruto" ColumnName="TotalBruto" />
+                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+                <ScalarProperty Name="ValorNeto" ColumnName="ValorNeto" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertarDetallePedido" FunctionName="DB_AcmeModel.Store.InsertarDetallePedido" />
+          <FunctionImportMapping FunctionImportName="InsertarPedido" FunctionName="DB_AcmeModel.Store.InsertarPedido" />
+          <FunctionImportMapping FunctionImportName="InsertarProducto" FunctionName="DB_AcmeModel.Store.InsertarProducto" />
+          <FunctionImportMapping FunctionImportName="InsertarUsuarioLogin" FunctionName="DB_AcmeModel.Store.InsertarUsuarioLogin" />
+          <FunctionImportMapping FunctionImportName="InsertarVendedor" FunctionName="DB_AcmeModel.Store.InsertarVendedor" />
+          <FunctionImportMapping FunctionImportName="ConsultarUsuarioLogin" FunctionName="DB_AcmeModel.Store.ConsultarUsuarioLogin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_AcmeModel.ConsultarUsuarioLogin_Result">
+                <ScalarProperty Name="ID_Login" ColumnName="ID_Login" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ConsultarVendedor" FunctionName="DB_AcmeModel.Store.ConsultarVendedor">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_AcmeModel.ConsultarVendedor_Result">
+                <ScalarProperty Name="ID_Vendedor" ColumnName="ID_Vendedor" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

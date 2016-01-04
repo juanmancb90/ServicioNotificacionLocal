@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_AcmeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TB_Auditoria">
+    <Key>
+      <PropertyRef Name="ID_Auditoria" />
+    </Key>
+    <Property Name="ID_Auditoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TiempoEvento" Type="datetime" Nullable="false" />
+    <Property Name="NombreUsuario" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="NombreBaseDatos" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="NombreObjeto" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="TipoObjeto" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ComandoDML" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_Categoria">
+    <Key>
+      <PropertyRef Name="ID_Categoria" />
+    </Key>
+    <Property Name="ID_Categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoCategoria" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="140" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_Ciudad">
+    <Key>
+      <PropertyRef Name="ID_Ciudad" />
+    </Key>
+    <Property Name="ID_Ciudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreCiudad" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="NombreRegion" Type="nvarchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_Cliente">
+    <Key>
+      <PropertyRef Name="ID_Cliente" />
+    </Key>
+    <Property Name="ID_Cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Vendedor" Type="int" Nullable="false" />
+    <Property Name="ID_Ciudad" Type="int" Nullable="false" />
+    <Property Name="ID_Documento" Type="int" Nullable="false" />
+    <Property Name="NombreCompleto" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="NumeroDocumento" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Celular" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="80" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_DetallePedido">
+    <Key>
+      <PropertyRef Name="ID_DetallePedido" />
+    </Key>
+    <Property Name="ID_DetallePedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Pedido" Type="int" Nullable="false" />
+    <Property Name="ID_Producto" Type="int" Nullable="false" />
+    <Property Name="Codigo" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="NombreProducto" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
+    <Property Name="ValorUnitario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Impuesto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="SubTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_Documento">
+    <Key>
+      <PropertyRef Name="ID_Documento" />
+    </Key>
+    <Property Name="ID_Documento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoDocumento" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_LoginAuditoria">
+    <Key>
+      <PropertyRef Name="ID_Login" />
+    </Key>
+    <Property Name="ID_Login" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreUsuario" Type="nchar" MaxLength="250" Nullable="false" />
+    <Property Name="FechaIngreso" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_Pedido">
+    <Key>
+      <PropertyRef Name="ID_Pedido" />
+    </Key>
+    <Property Name="ID_Pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Cliente" Type="int" Nullable="false" />
+    <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+    <Property Name="TotalBruto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Impuesto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="ValorNeto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_Producto">
+    <Key>
+      <PropertyRef Name="ID_Producto" />
+    </Key>
+    <Property Name="ID_Producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Categoria" Type="int" Nullable="false" />
+    <Property Name="ID_Promocion" Type="int" Nullable="false" />
+    <Property Name="NombreProducto" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Codigo" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Fabricante" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Stock" Type="int" Nullable="false" />
+    <Property Name="Impuesto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="ValorUnitario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_Promocion">
+    <Key>
+      <PropertyRef Name="ID_Promocion" />
+    </Key>
+    <Property Name="ID_Promocion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoPromocion" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="140" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_Vendedor">
+    <Key>
+      <PropertyRef Name="ID_Vendedor" />
+    </Key>
+    <Property Name="ID_Vendedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreCompleto" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="NumeroDocumento" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="NombreUsuario" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Contrasenia" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Email" Type="nchar" MaxLength="250" />
+  </EntityType>
+  <Association Name="FK_TB_Cliente_TB_Ciudad">
+    <End Role="TB_Ciudad" Type="Self.TB_Ciudad" Multiplicity="1" />
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Ciudad">
+        <PropertyRef Name="ID_Ciudad" />
+      </Principal>
+      <Dependent Role="TB_Cliente">
+        <PropertyRef Name="ID_Ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Cliente_TB_Documento">
+    <End Role="TB_Documento" Type="Self.TB_Documento" Multiplicity="1" />
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Documento">
+        <PropertyRef Name="ID_Documento" />
+      </Principal>
+      <Dependent Role="TB_Cliente">
+        <PropertyRef Name="ID_Documento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Cliente_TB_Vendedor">
+    <End Role="TB_Vendedor" Type="Self.TB_Vendedor" Multiplicity="1" />
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Vendedor">
+        <PropertyRef Name="ID_Vendedor" />
+      </Principal>
+      <Dependent Role="TB_Cliente">
+        <PropertyRef Name="ID_Vendedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_DetallePedido_TB_Pedido">
+    <End Role="TB_Pedido" Type="Self.TB_Pedido" Multiplicity="1" />
+    <End Role="TB_DetallePedido" Type="Self.TB_DetallePedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Pedido">
+        <PropertyRef Name="ID_Pedido" />
+      </Principal>
+      <Dependent Role="TB_DetallePedido">
+        <PropertyRef Name="ID_Pedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_DetallePedido_TB_Producto">
+    <End Role="TB_Producto" Type="Self.TB_Producto" Multiplicity="1" />
+    <End Role="TB_DetallePedido" Type="Self.TB_DetallePedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Producto">
+        <PropertyRef Name="ID_Producto" />
+      </Principal>
+      <Dependent Role="TB_DetallePedido">
+        <PropertyRef Name="ID_Producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Pedido_TB_Cliente">
+    <End Role="TB_Cliente" Type="Self.TB_Cliente" Multiplicity="1" />
+    <End Role="TB_Pedido" Type="Self.TB_Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Cliente">
+        <PropertyRef Name="ID_Cliente" />
+      </Principal>
+      <Dependent Role="TB_Pedido">
+        <PropertyRef Name="ID_Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Producto_TB_Categoria">
+    <End Role="TB_Categoria" Type="Self.TB_Categoria" Multiplicity="1" />
+    <End Role="TB_Producto" Type="Self.TB_Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Categoria">
+        <PropertyRef Name="ID_Categoria" />
+      </Principal>
+      <Dependent Role="TB_Producto">
+        <PropertyRef Name="ID_Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_Producto_TB_Promocion">
+    <End Role="TB_Promocion" Type="Self.TB_Promocion" Multiplicity="1" />
+    <End Role="TB_Producto" Type="Self.TB_Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Promocion">
+        <PropertyRef Name="ID_Promocion" />
+      </Principal>
+      <Dependent Role="TB_Producto">
+        <PropertyRef Name="ID_Promocion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ActualizarPedidoSincronizado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Pedido" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ActualizarProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Producto" Type="int" Mode="In" />
+    <Parameter Name="ID_Categoria" Type="int" Mode="In" />
+    <Parameter Name="ID_Promocion" Type="int" Mode="In" />
+    <Parameter Name="NombreProducto" Type="nvarchar" Mode="In" />
+    <Parameter Name="Codigo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="Fabricante" Type="nvarchar" Mode="In" />
+    <Parameter Name="Stock" Type="int" Mode="In" />
+    <Parameter Name="Impuesto" Type="decimal" Mode="In" />
+    <Parameter Name="ValorUnitario" Type="decimal" Mode="In" />
+    <Parameter Name="Estado" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="ActualizarStockProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Producto" Type="int" Mode="In" />
+    <Parameter Name="Cantidad" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AutenticarVendedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreUsuario" Type="nvarchar" Mode="In" />
+    <Parameter Name="Contrasenia" Type="nvarchar" Mode="In" />
+    <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+  </Function>
+  <Function Name="ConsultarDetallePedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Pedido" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ConsultarIdentificadorPedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Pedido" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="ConsultarPedidoFecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Fecha" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ConsultarUsuarioLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaActual" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ConsultarVendedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreUsuario" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="InsertarDetallePedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Pedido" Type="int" Mode="In" />
+    <Parameter Name="ID_Producto" Type="int" Mode="In" />
+    <Parameter Name="Cantidad" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertarPedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Cliente" Type="int" Mode="In" />
+    <Parameter Name="TotalBruto" Type="decimal" Mode="In" />
+    <Parameter Name="Impuesto" Type="decimal" Mode="In" />
+    <Parameter Name="ValorNeto" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="InsertarProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Categoria" Type="int" Mode="In" />
+    <Parameter Name="ID_Promocion" Type="int" Mode="In" />
+    <Parameter Name="NombreProducto" Type="nvarchar" Mode="In" />
+    <Parameter Name="Codigo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="Fabricante" Type="nvarchar" Mode="In" />
+    <Parameter Name="Stock" Type="int" Mode="In" />
+    <Parameter Name="Impuesto" Type="decimal" Mode="In" />
+    <Parameter Name="ValorUnitario" Type="decimal" Mode="In" />
+    <Parameter Name="Estado" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="InsertarUsuarioLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreUsuario" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="InsertarVendedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreCompleto" Type="nvarchar" Mode="In" />
+    <Parameter Name="NumeroDocumento" Type="nvarchar" Mode="In" />
+    <Parameter Name="NombreUsuario" Type="nvarchar" Mode="In" />
+    <Parameter Name="Contrasenia" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="DB_AcmeModelStoreContainer">
+    <EntitySet Name="TB_Auditoria" EntityType="Self.TB_Auditoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_Categoria" EntityType="Self.TB_Categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_Ciudad" EntityType="Self.TB_Ciudad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_Cliente" EntityType="Self.TB_Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_DetallePedido" EntityType="Self.TB_DetallePedido" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_Documento" EntityType="Self.TB_Documento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_LoginAuditoria" EntityType="Self.TB_LoginAuditoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_Pedido" EntityType="Self.TB_Pedido" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_Producto" EntityType="Self.TB_Producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_Promocion" EntityType="Self.TB_Promocion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_Vendedor" EntityType="Self.TB_Vendedor" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TB_Cliente_TB_Ciudad" Association="Self.FK_TB_Cliente_TB_Ciudad">
+      <End Role="TB_Ciudad" EntitySet="TB_Ciudad" />
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Cliente_TB_Documento" Association="Self.FK_TB_Cliente_TB_Documento">
+      <End Role="TB_Documento" EntitySet="TB_Documento" />
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Cliente_TB_Vendedor" Association="Self.FK_TB_Cliente_TB_Vendedor">
+      <End Role="TB_Vendedor" EntitySet="TB_Vendedor" />
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_DetallePedido_TB_Pedido" Association="Self.FK_TB_DetallePedido_TB_Pedido">
+      <End Role="TB_Pedido" EntitySet="TB_Pedido" />
+      <End Role="TB_DetallePedido" EntitySet="TB_DetallePedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_DetallePedido_TB_Producto" Association="Self.FK_TB_DetallePedido_TB_Producto">
+      <End Role="TB_Producto" EntitySet="TB_Producto" />
+      <End Role="TB_DetallePedido" EntitySet="TB_DetallePedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Pedido_TB_Cliente" Association="Self.FK_TB_Pedido_TB_Cliente">
+      <End Role="TB_Cliente" EntitySet="TB_Cliente" />
+      <End Role="TB_Pedido" EntitySet="TB_Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Producto_TB_Categoria" Association="Self.FK_TB_Producto_TB_Categoria">
+      <End Role="TB_Categoria" EntitySet="TB_Categoria" />
+      <End Role="TB_Producto" EntitySet="TB_Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_Producto_TB_Promocion" Association="Self.FK_TB_Producto_TB_Promocion">
+      <End Role="TB_Promocion" EntitySet="TB_Promocion" />
+      <End Role="TB_Producto" EntitySet="TB_Producto" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

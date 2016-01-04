@@ -1,0 +1,10 @@
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\DAL\bin\Debug\DAL.dll.config
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\DAL\bin\Debug\DAL.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\DAL\bin\Debug\DAL.pdb
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\DAL\bin\Debug\Entidades.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\DAL\bin\Debug\EntityFramework.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\DAL\bin\Debug\Entidades.pdb
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\DAL\bin\Debug\EntityFramework.xml
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\DAL\obj\Debug\DAL.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\ServicioNotificacion\DAL\obj\Debug\DAL.pdb
