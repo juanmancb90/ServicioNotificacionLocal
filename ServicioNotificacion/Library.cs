@@ -76,8 +76,8 @@ namespace ServicioNotificacion
         public static void SendEmail(String ToEmail, String Subj, string Message)
         {
             string HostAdd = "smtp-mail.outlook.com";
-            string FromEmailId = "juanmanb9018@hotmail.com";
-            string Pass = "1144034955juan";
+            string FromEmailId = "user@user.com";
+            string Pass = "user123";
 
             //objeto del tipo mensaje
             MailMessage mailMensaje = new MailMessage();
